@@ -14,14 +14,17 @@ public class CarController {
 
     // The delay (ms) corresponds to 20 updates a sec (hz)
     private final int delay = 50;
-    // The timer is started with an listener (see below) that executes the statements
+    // The timer is started with a listener (see below) that executes the statements
     // each step between delays.
     private Timer timer = new Timer(delay, new TimerListener());
 
     // The frame that represents this instance View of the MVC pattern
     CarView frame;
     // A list of cars, modify if needed
-    ArrayList<ACar> cars = new ArrayList<>();
+    ArrayList<Car> cars = new ArrayList<>();
+    ArrayList<Volvo240> volvos = new ArrayList<>();
+
+    private static CarController cc = new CarController();
 
     //methods:
 
@@ -41,7 +44,7 @@ public class CarController {
     * */
     private class TimerListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-            for (ACar car : cars) {
+            for (Car car : cars) {
                 car.move();
                 int x = (int) Math.round(car.getPosition()[0]);
                 int y = (int) Math.round(car.getPosition()[1]);
@@ -52,11 +55,20 @@ public class CarController {
         }
     }
 
+    static void addCar(Car car){
+        cc.cars.add(car);
+    }
+
+    static void addCar(Volvo240 volvo){
+        cc.cars.add(volvo);
+        cc.volvos.add(volvo);
+    }
+
+
     // Calls the gas method for each car once
     void gas(int amount) {
         double gas = ((double) amount) / 100;
-        for (ACar car : cars
-                ) {
+        for (Car car : cars) {
             car.gas(gas);
         }
     }
