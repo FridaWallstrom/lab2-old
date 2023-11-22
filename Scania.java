@@ -16,6 +16,18 @@ public class Scania extends Car {
         }
         return 0;
     }
+
+    /**
+     * override so startEngine() only works if the ramp is down
+     */
+    @Override
+    public void startEngine() {
+        if(ramp.getAngle() == 0){
+            super.startEngine();
+        }
+    }
+
+
     public void raiseRamp(double angle) {
         if (getCurrentSpeed() == 0) {
             ramp.raise(angle);

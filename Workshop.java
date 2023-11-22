@@ -1,6 +1,6 @@
-public class Workshop<T extends Car> extends Item{
+public class Workshop<T extends Car> extends Item {
     //*
-    
+
     private Container<T> container;
 
     private int range;
@@ -8,9 +8,10 @@ public class Workshop<T extends Car> extends Item{
 
     /**
      * Creates a workshop with a container
+     *
      * @param position the position of the workshop
      * @param capacity the max number of items in the container
-     * @param range the max range between the item anc container during load
+     * @param range    the max range between the item anc container during load
      */
     public Workshop(double[] position, int capacity, int range) {
         super(position);
@@ -20,6 +21,7 @@ public class Workshop<T extends Car> extends Item{
 
     /**
      * Loads a car into container
+     *
      * @param car
      */
     public void load(T car) {
@@ -28,6 +30,7 @@ public class Workshop<T extends Car> extends Item{
 
     /**
      * unloads a car from a certain index
+     *
      * @return
      */
     public T unload(int index) {

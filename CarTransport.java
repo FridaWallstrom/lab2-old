@@ -1,4 +1,8 @@
+import javax.imageio.ImageIO;
 import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+
 
 public class CarTransport extends Car {
 
@@ -6,10 +10,10 @@ public class CarTransport extends Car {
     private Container<Car> transportedCars;
     private int range = 5;
 
-
     public CarTransport(double[] position, int capacity) {
         super(position, 2, Color.decode("#da09cd"), 55, "CarTransport");
         ramp = new Ramp();
+        ramp.raise();
         transportedCars = new Container<>(capacity, position, range);
     }
 
@@ -39,9 +43,9 @@ public class CarTransport extends Car {
 
     public void load(PassengerCar car) {
         if (ramp.getAngle() == 0) {
-                transportedCars.load(car);
-            }
+            transportedCars.load(car);
         }
+    }
 
 
     public Car unload() {
@@ -55,7 +59,8 @@ public class CarTransport extends Car {
         System.out.println("Can't unload car, ramp is not lowered");
         return null;
     }
-    public int numberOfItems(){
+
+    public int numberOfItems() {
         return transportedCars.numberOfItems();
     }
 

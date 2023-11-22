@@ -1,10 +1,14 @@
+import javax.imageio.ImageIO;
 import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.nio.Buffer;
 import java.security.InvalidParameterException;
 
 /**
  * A class defining a basic car model with speed and direction on a 2d plane.
  */
-abstract public class Car extends Item implements Movable{
+abstract public class Car extends Item implements Movable {
     /**
      * The number of doors on the car
      */
@@ -30,6 +34,10 @@ abstract public class Car extends Item implements Movable{
      * The direction of the car
      */
     protected double direction;
+
+
+    BufferedImage image;
+
 
     /**
      * The constructor of the class
@@ -145,6 +153,7 @@ abstract public class Car extends Item implements Movable{
         getPosition()[0] += currentSpeed * Math.cos(direction);
         getPosition()[1] += currentSpeed * Math.sin(direction);
     }
+
 
     /**
      * Changes the direction of the car

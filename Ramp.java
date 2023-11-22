@@ -18,12 +18,13 @@ public class Ramp {
 
     /**
      * Lowers the ramp by an angle
+     *
      * @param angle, the angle of which the ramp is lowered
      */
     public void lower(double angle) {
         if (this.angle - angle > minAngle && angle >= 0) {
             this.angle -= angle;
-        } else if (angle >= 0){
+        } else if (angle >= 0) {
             this.angle = minAngle;
         }
     }
@@ -37,6 +38,7 @@ public class Ramp {
 
     /**
      * Raises the ramp by an angle
+     *
      * @param angle, the angle of which the ramp is raised
      */
     public void raise(double angle) {
@@ -56,6 +58,7 @@ public class Ramp {
 
     /**
      * gets the angle
+     *
      * @return returns the angle
      */
     public double getAngle() {

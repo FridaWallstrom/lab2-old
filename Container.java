@@ -35,6 +35,7 @@ public class Container<T extends Item> {
 
     /**
      * Removes an item from the container
+     *
      * @param index, the position of which an item should be removed from the container
      * @return returns the removed item
      */
@@ -46,6 +47,7 @@ public class Container<T extends Item> {
 
     /**
      * Updates the position of the objects inside the container to a new position
+     *
      * @param position the new position
      */
     public void updatePosition(double[] position) {
@@ -57,6 +59,7 @@ public class Container<T extends Item> {
 
     /**
      * returns the number of items in the container
+     *
      * @return the number of items in the container
      */
     public int numberOfItems() {
