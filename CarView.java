@@ -7,10 +7,9 @@ import java.awt.event.ActionListener;
 
 /**
  * This class represents the full view of the MVC pattern of your car simulator.
- * It initializes with being center on the screen and attaching it's controller in it's state.
+ * It initializes with being center on the screen and attaching its controller in its state.
  * It communicates with the Controller by calling methods of it when an action fires of in
- * each of it's components.
- * TODO: Write more actionListeners and wire the rest of the buttons
+ * each of its components.
  **/
 
 public class CarView extends JFrame {
@@ -46,7 +45,6 @@ public class CarView extends JFrame {
     }
 
     // Sets everything in place and fits everything
-    // TODO: Take a good look and make sure you understand how these methods and components work
     private void initComponents(String title) {
 
         //
@@ -99,10 +97,7 @@ public class CarView extends JFrame {
         stopButton.setPreferredSize(new Dimension(X / 5 - 15, 200));
         this.add(stopButton);
 
-        // This actionListener is for the gas button only
-        // TODO: Create more for each component as necessary
-
-        /**
+        /*
          * knapp som gasar för all bilar
          */
         gasButton.addActionListener(new ActionListener() {
@@ -112,7 +107,7 @@ public class CarView extends JFrame {
             }
         });
 
-        /**
+        /*
          * knapp son bromsar alla bilar
          */
         brakeButton.addActionListener(new ActionListener() {
@@ -122,7 +117,7 @@ public class CarView extends JFrame {
             }
         });
 
-        /**
+        /*
          * Knapp som sätter på turbon för saaben
          */
         turboOnButton.addActionListener(new ActionListener() {
@@ -142,7 +137,7 @@ public class CarView extends JFrame {
             }
         });
 
-        /**
+        /*
          * Höjer flaket på scania
          */
         liftBedButton.addActionListener(new ActionListener() {
@@ -152,7 +147,7 @@ public class CarView extends JFrame {
             }
         });
 
-        /**
+        /*
          * Sänker flaket på scania
          */
         lowerBedButton.addActionListener(new ActionListener() {
@@ -161,7 +156,7 @@ public class CarView extends JFrame {
                 carC.scaniaLowerBed(gasAmount);
             }
         });
-        /**
+        /*
          * Knapp som startar alla bilar
          */
         startButton.addActionListener(new ActionListener() {
@@ -171,7 +166,7 @@ public class CarView extends JFrame {
             }
         });
 
-        /**
+        /*
          * Knapp som stoppar alla bilar
          */
         stopButton.addActionListener(new ActionListener() {

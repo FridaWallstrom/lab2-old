@@ -3,9 +3,6 @@ public class Workshop<T extends Car> extends Item {
 
     private Container<T> container;
 
-    private int range;
-    private double[] position;
-
     /**
      * Creates a workshop with a container
      *
@@ -15,7 +12,6 @@ public class Workshop<T extends Car> extends Item {
      */
     public Workshop(double[] position, int capacity, int range) {
         super(position);
-        this.range = range;
         container = new Container<>(capacity, position, range);
     }
 
