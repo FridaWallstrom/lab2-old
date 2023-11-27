@@ -23,7 +23,6 @@ public class CarController {
     CarView frame;
     // A list of cars, modify if needed
     Collection<Car> cars = new ArrayList<>();
-    Collection<Volvo240> volvos = new ArrayList<>();
     Collection<Saab95> saabs = new ArrayList<>();
     Collection<Scania> scanias = new ArrayList<>();
 
@@ -69,7 +68,7 @@ public class CarController {
      * @return if the car is out of bounds it returns TRUE and if it is in bounds it returns FALSE
      */
     public boolean checkIfCarIsOutOfBounds(Car car){
-        return car.getPosition()[0] > 800 - car.image.getWidth() || car.getPosition()[1] > 660 - car.image.getHeight() 
+        return car.getPosition()[0] > 800 - car.image.getWidth() || car.getPosition()[1] > 660 - car.image.getHeight()
                 || car.getPosition()[0] < 0|| car.getPosition()[1] < 0;
     }
     /**
@@ -93,11 +92,6 @@ public class CarController {
 
     static void addCar(Car car) {
         cc.cars.add(car);
-    }
-
-    static void addCar(Volvo240 volvo) {
-        cc.cars.add(volvo);
-        cc.volvos.add(volvo);
     }
 
     static void addCar(Scania scania) {
