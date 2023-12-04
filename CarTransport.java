@@ -4,13 +4,13 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 
 
-public class CarTransport extends Car {
+ class CarTransport extends Car {
 
     private Ramp ramp;
     private Container<Car> transportedCars;
     private int range = 5;
 
-    public CarTransport(double[] position, int capacity) {
+    CarTransport(double[] position, int capacity) {
         super(position, 2, Color.decode("#da09cd"), 55, "CarTransport");
         ramp = new Ramp();
         ramp.raise();

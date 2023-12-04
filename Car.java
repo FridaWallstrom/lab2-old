@@ -36,14 +36,11 @@ abstract public class Car extends Item implements Movable {
     protected double direction;
 
 
-    BufferedImage image;
-
-
     /**
      * The constructor of the class
      */
     public Car(double[] position, int nrDoors, Color color, double enginePower, String modelName) {
-        super(position);
+        super(position, modelName);
         this.nrDoors = nrDoors;
         this.color = color;
         this.enginePower = enginePower;

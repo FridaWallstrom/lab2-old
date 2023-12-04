@@ -10,8 +10,8 @@ public class Workshop<T extends Car> extends Item {
      * @param capacity the max number of items in the container
      * @param range    the max range between the item anc container during load
      */
-    public Workshop(double[] position, int capacity, int range) {
-        super(position);
+    Workshop(double[] position, int capacity, int range, String name) {
+        super(position, name);
         container = new Container<>(capacity, position, range);
     }
 

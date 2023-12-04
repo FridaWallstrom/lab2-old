@@ -1,11 +1,11 @@
 import java.awt.*;
 
-public class Scania extends Car {
+class Scania extends Car implements HasBed{
 
     public Ramp ramp;
 
 
-    public Scania(double[] position) {
+    Scania(double[] position) {
         super(position, 2, Color.decode("#09CDDA"), 50, "Scania");
         ramp = new Ramp(0, 70);
     }

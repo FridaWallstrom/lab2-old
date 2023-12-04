@@ -1,2 +1,4 @@
-package PACKAGE_NAME;public interface HasTurbo {
+public interface HasTurbo {
+    void setTurboOn();
+    void setTurboOff();
 }

@@ -10,7 +10,7 @@ import java.util.Collection;
  * modifying the model state and the updating the view.
  */
 
-public class CarController {
+public class CarUpdater {
     // member fields:
 
     // The delay (ms) corresponds to 20 updates a sec (hz)
@@ -23,20 +23,20 @@ public class CarController {
     CarView frame;
     // A list of cars, modify if needed
     Collection<Car> cars = new ArrayList<>();
-    Collection<Saab95> saabs = new ArrayList<>();
-    Collection<Scania> scanias = new ArrayList<>();
+    Collection<HasTurbo> saabs = new ArrayList<>();
+    Collection<HasBed> scanias = new ArrayList<>();
 
 
-    static CarController cc = new CarController();
+    static CarUpdater cc = new CarUpdater();
 
     //methods:
 
     public static void main(String[] args) {
         // Instance of this class
-        addCar(new Volvo240(new double[] {0,0}));
-        addCar(new Saab95(new double[]{100, 200}));
-        addCar(new CarTransport(new double[]{100, 100}, 5));
-        addCar(new Scania(new double[] {200,200}));
+        addCar(ItemFactory.createVolvo240(new double[] {0,0}));
+        addCar(ItemFactory.createSaab95(new double[]{100, 200}));
+        addCar(ItemFactory.createCarTransport(new double[]{100, 100}, 5));
+        addCar(ItemFactory.createScania(new double[] {200,200}));
 
 
 
@@ -55,8 +55,8 @@ public class CarController {
         if (checkIfCarIsOutOfBounds(car)){
             car.stopEngine();
             car.setPosition(new double[] {
-                    Math.clamp(car.getPosition()[0], 0.1, 800 - car.image.getWidth()) -0.1,
-                    Math.clamp(car.getPosition()[1],0.1, 660 - car.image.getHeight() -0.1)});
+                    Math.clamp(car.getPosition()[0], 0.1, 800 - ImageHandler.getImage(car).getWidth()) -0.1,
+                    Math.clamp(car.getPosition()[1],0.1, 660 - ImageHandler.getImage(car).getHeight() -0.1)});
             car.direction -= Math.PI;
             car.startEngine();
         }
@@ -68,7 +68,7 @@ public class CarController {
      * @return if the car is out of bounds it returns TRUE and if it is in bounds it returns FALSE
      */
     public boolean checkIfCarIsOutOfBounds(Car car){
-        return car.getPosition()[0] > 800 - car.image.getWidth() || car.getPosition()[1] > 660 - car.image.getHeight()
+        return car.getPosition()[0] > 800 - ImageHandler.getImage(car).getWidth() || car.getPosition()[1] > 660 - ImageHandler.getImage(car).getHeight()
                 || car.getPosition()[0] < 0|| car.getPosition()[1] < 0;
     }
     /**
@@ -84,7 +84,7 @@ public class CarController {
 //                int y = (int) Math.round(car.getPosition()[1]);
 //                frame.drawPanel.moveit(x, y);
                 // repaint() calls the paintComponent method of the panel
-                frame.drawPanel.repaint();
+                frame.repaint();
                 frame.setVisible(true);
             }
         }
@@ -133,25 +133,25 @@ public class CarController {
     }
 
     void turboOn() {
-        for (Saab95 car : saabs) {
+        for (HasTurbo car : saabs) {
             car.setTurboOn();
         }
     }
 
     void turboOff() {
-        for (Saab95 car : saabs) {
+        for (HasTurbo car : saabs) {
             car.setTurboOff();
         }
     }
 
     void scaniaRaiseBed(int angle){
-        for (Scania car : scanias){
+        for (HasBed car : scanias){
             car.raiseRamp(angle);
         }
     }
 
     void scaniaLowerBed(int angle){
-        for (Scania car : scanias){
+        for (HasBed car : scanias){
             car.lowerRamp(angle);
         }
     }

@@ -4,8 +4,11 @@ public class Item {
      */
     private double[] position;
 
-    public Item(double[] position) {
+    public String name;
+
+    public Item(double[] position, String name) {
         this.position = position;
+        this.name = name;
     }
 
     public double[] getPosition() {
@@ -14,6 +17,10 @@ public class Item {
 
     protected void setPosition(double[] position) {
         this.position = position;
+    }
+
+    public String getName(){
+        return name;
     }
 
 }

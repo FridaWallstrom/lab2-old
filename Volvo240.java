@@ -3,7 +3,7 @@ import java.awt.*;
 /**
  * A subclass of Car
  */
-public class Volvo240 extends PassengerCar {
+class Volvo240 extends PassengerCar {
 
     private double trimFactor = 1.25;
 
@@ -12,7 +12,7 @@ public class Volvo240 extends PassengerCar {
      *
      * @param position is the position where the car starts
      */
-    public Volvo240(double[] position) {
+    Volvo240(double[] position) {
         super(position, 4, Color.black, 100, "Volvo240");
         stopEngine();
     }

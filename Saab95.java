@@ -3,7 +3,7 @@ import java.awt.*;
 /**
  * A subclass of Car
  */
-public class Saab95 extends PassengerCar {
+class Saab95 extends PassengerCar implements HasTurbo{
 
     /**
      * State of turbo(on/off)
@@ -16,7 +16,7 @@ public class Saab95 extends PassengerCar {
      *
      * @param position is the position where the car starts
      */
-    public Saab95(double[] position) {
+    Saab95(double[] position) {
         super(position, 2, Color.red, 125, "Saab95");
         turboOn = false;
         stopEngine();
