@@ -1,2 +1,3 @@
-package PACKAGE_NAME;public interface UpdateObserver {
+public interface UpdateObserver {
+    void actOnTickUpdate();
 }

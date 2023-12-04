@@ -29,6 +29,7 @@ public class CarUpdater {
 
     static CarUpdater cc = new CarUpdater();
 
+    static Collection<UpdateObserver> observers;
     //methods:
 
     public static void main(String[] args) {
@@ -84,10 +85,16 @@ public class CarUpdater {
 //                int y = (int) Math.round(car.getPosition()[1]);
 //                frame.drawPanel.moveit(x, y);
                 // repaint() calls the paintComponent method of the panel
-                frame.repaint();
+                //frame.repaint();
+                for (UpdateObserver observer:observers){
+                    observer.actOnTickUpdate();
+                }
                 frame.setVisible(true);
             }
         }
+    }
+    static void addObserver(UpdateObserver observer){
+        observers.add(observer);
     }
 
     static void addCar(Car car) {

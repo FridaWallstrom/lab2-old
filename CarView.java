@@ -8,7 +8,7 @@ import java.awt.*;
  * each of its components.
  **/
 
-public class CarView extends JFrame {
+public class CarView extends JFrame implements UpdateObserver {
     private static final int X = 800;
     private static final int Y = 800;
 
@@ -45,9 +45,7 @@ public class CarView extends JFrame {
         // Make sure the frame exits when "x" is pressed
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
-
-    @Override
-    public void repaint() {
+    public void actOnTickUpdate(){
         drawPanel.repaint();
     }
 }
