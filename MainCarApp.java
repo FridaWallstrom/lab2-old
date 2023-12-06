@@ -10,6 +10,6 @@ public class MainCarApp {
 
         // The frame that represents this instance View of the MVC pattern
         // Start a new view and send a reference of self
-        cc.addObserver(new CarView("CarSim 1.0"));//ska flyttas till carviews construktor
+        cc.addObserver(new CarView("CarSim 1.0", cc));//ska flyttas till carviews construktor
     }
 }

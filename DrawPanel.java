@@ -1,5 +1,7 @@
 import java.awt.*;
 import java.io.IOException;
+import java.util.Collection;
+import java.util.Iterator;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 
@@ -7,8 +9,10 @@ import javax.swing.*;
 
 public class DrawPanel extends JPanel {
 
+    Iterable<Item> itemsToDraw;
     // Initializes the panel and reads the images
-    public DrawPanel(int x, int y) {
+    public DrawPanel(int x, int y, CarUpdater cc) {
+        Collection<Car> itemsToDraw =  cc.cars;
         this.setDoubleBuffered(true);
         this.setPreferredSize(new Dimension(x, y));
         this.setBackground(Color.green);
@@ -20,10 +24,10 @@ public class DrawPanel extends JPanel {
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        for (Car car : CarUpdater.cc.cars) {
-            int x = (int) Math.round(car.getPosition()[0]);
-            int y = (int) Math.round(car.getPosition()[1]);
-            g.drawImage(ImageHandler.getImage(car), x, y, null); // see javadoc for more info on the parameters
+        for (Item item : itemsToDraw) {//drawables?
+            int x = (int) Math.round(item.getPosition()[0]);
+            int y = (int) Math.round(item.getPosition()[1]);
+            g.drawImage(ImageHandler.getImage(item), x, y, null); // see javadoc for more info on the parameters
         }
     }
 }

@@ -11,13 +11,15 @@ import java.awt.*;
 public class CarView extends JFrame implements UpdateObserver {
     private static final int X = 800;
     private static final int Y = 800;
+    CarUpdater cc;
 
     ControlPanel controlPanel = new ControlPanel(X,Y);
 
-    DrawPanel drawPanel = new DrawPanel(X, Y - 240);
+    DrawPanel drawPanel = new DrawPanel(X, Y - 240, cc);
 
     // Constructor
-    public CarView(String framename) {
+    public CarView(String framename, CarUpdater cc) {
+        this.cc = cc;
         initComponents(framename);
     }
 

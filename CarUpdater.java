@@ -3,6 +3,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Iterator;
 
 /**
  * This class represents the Controller part in the MVC pattern.
@@ -10,7 +11,7 @@ import java.util.Collection;
  * modifying the model state and the updating the view.
  */
 
-public class CarUpdater {
+public class CarUpdater implements Iterable<Car> {
     // member fields:
 
     // The delay (ms) corresponds to 20 updates a sec (hz)
@@ -59,6 +60,12 @@ public class CarUpdater {
         return car.getPosition()[0] > 800 - ImageHandler.getImage(car).getWidth() || car.getPosition()[1] > 660 - ImageHandler.getImage(car).getHeight()
                 || car.getPosition()[0] < 0|| car.getPosition()[1] < 0;
     }
+
+    @Override
+    public Iterator<Car> iterator() {
+        return cars.iterator();
+    }
+
     /**
      * Each step the TimerListener moves all the cars in the list and tells the
      * view to update its images. Change this method to your needs.
