@@ -17,35 +17,22 @@ public class CarUpdater {
     private final int delay = 50;
     // The timer is started with a listener (see below) that executes the statements
     // each step between delays.
-    private Timer timer = new Timer(delay, new TimerListener());
+    Timer timer = new Timer(delay, new TimerListener());
 
-    // The frame that represents this instance View of the MVC pattern
-    CarView frame;
     // A list of cars, modify if needed
     Collection<Car> cars = new ArrayList<>();
     Collection<HasTurbo> saabs = new ArrayList<>();
     Collection<HasBed> scanias = new ArrayList<>();
 
 
-    static CarUpdater cc = new CarUpdater();
+    //static CarUpdater cc = new CarUpdater();
 
-    static Collection<UpdateObserver> observers;
+    private Collection<UpdateObserver> observers = new ArrayList<>();
     //methods:
 
-    public static void main(String[] args) {
-        // Instance of this class
-        addCar(ItemFactory.createVolvo240(new double[] {0,0}));
-        addCar(ItemFactory.createSaab95(new double[]{100, 200}));
-        addCar(ItemFactory.createCarTransport(new double[]{100, 100}, 5));
-        addCar(ItemFactory.createScania(new double[] {200,200}));
 
-
-
-        // Start a new view and send a reference of self
-        cc.frame = new CarView("CarSim 1.0");
-
-        // Start the timer
-        cc.timer.start();
+    public CarUpdater(){
+        timer.start();
     }
 
     /**
@@ -81,34 +68,30 @@ public class CarUpdater {
             for (Car car : cars) {
                 stopCarFromGoingOutOfBounds(car);
                 car.move();
-//                int x = (int) Math.round(car.getPosition()[0]);
-//                int y = (int) Math.round(car.getPosition()[1]);
-//                frame.drawPanel.moveit(x, y);
-                // repaint() calls the paintComponent method of the panel
-                //frame.repaint();
+
                 for (UpdateObserver observer:observers){
                     observer.actOnTickUpdate();
                 }
-                frame.setVisible(true);
             }
         }
     }
-    static void addObserver(UpdateObserver observer){
+    public void addObserver(UpdateObserver observer){
         observers.add(observer);
     }
 
-    static void addCar(Car car) {
-        cc.cars.add(car);
+
+    public void addCar(Car car) {
+        cars.add(car);
     }
 
-    static void addCar(Scania scania) {
-        cc.cars.add(scania);
-        cc.scanias.add(scania);
+    public void addCar(Scania scania) {
+        cars.add(scania);
+        scanias.add(scania);
     }
 
-    static void addCar(Saab95 saab) {
-        cc.cars.add(saab);
-        cc.saabs.add(saab);
+    public void addCar(Saab95 saab) {
+        cars.add(saab);
+        saabs.add(saab);
     }
 
 

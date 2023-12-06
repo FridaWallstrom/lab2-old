@@ -30,7 +30,6 @@ public class ControlPanel extends JPanel{
     public ControlPanel(int x, int y) {
         this.X = x;
         this.Y = y;
-        this.carC = CarUpdater.cc;
     }
 
     protected void initComponents() {
