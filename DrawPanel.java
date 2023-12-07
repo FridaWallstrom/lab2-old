@@ -9,22 +9,20 @@ import javax.swing.*;
 
 public class DrawPanel extends JPanel {
 
-    Iterable<Item> itemsToDraw;
+    Iterable<? extends Item> itemsToDraw;
     // Initializes the panel and reads the images
-    public DrawPanel(int x, int y, CarUpdater cc) {
-        Collection<Car> itemsToDraw =  cc.cars;
+    public DrawPanel(int x, int y, Collection<? extends Item> items) { //generic typ kräver wildcard (om subtypspolymorfism)
+        this.itemsToDraw = items;
         this.setDoubleBuffered(true);
         this.setPreferredSize(new Dimension(x, y));
         this.setBackground(Color.green);
-
     }
 
     // This method is called each time the panel updates/refreshes/repaints itself
-    // TODO: Change to suit your needs.
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        for (Item item : itemsToDraw) {//drawables?
+        for (Item item : itemsToDraw) {
             int x = (int) Math.round(item.getPosition()[0]);
             int y = (int) Math.round(item.getPosition()[1]);
             g.drawImage(ImageHandler.getImage(item), x, y, null); // see javadoc for more info on the parameters

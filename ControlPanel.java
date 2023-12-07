@@ -7,6 +7,7 @@ import java.awt.event.*;
 public class ControlPanel extends JPanel{
     JPanel controlPanel = new JPanel();
 
+    ControlHandler ch;
     JPanel gasPanel = new JPanel();
     JSpinner gasSpinner = new JSpinner();
     int gasAmount = 0;
@@ -22,17 +23,21 @@ public class ControlPanel extends JPanel{
     JButton startButton = new JButton("Start all cars");
     JButton stopButton = new JButton("Stop all cars");
 
+    JButton addCarButton = new JButton("Add Car");
+    JButton removeCarButton = new JButton("Remove Car");
+
+
     private int X;
     private int Y;
 
-    CarUpdater carC = new CarUpdater();
-
-    public ControlPanel(int x, int y) {
+    public ControlPanel(int x, int y, ControlHandler controlHandler) {
+        this.ch = controlHandler;
         this.X = x;
         this.Y = y;
+        initComponents();
     }
 
-    protected void initComponents() {
+    private void initComponents() {
         //spinner
         SpinnerModel spinnerModel =
                 new SpinnerNumberModel(0, //initial value
@@ -60,6 +65,8 @@ public class ControlPanel extends JPanel{
         controlPanel.add(brakeButton, 3);
         controlPanel.add(turboOffButton, 4);
         controlPanel.add(lowerBedButton, 5);
+        controlPanel.add(addCarButton, 6);
+        controlPanel.add(removeCarButton, 7);
         controlPanel.setPreferredSize(new Dimension((X / 2) + 4, 200));
         this.add(controlPanel);
         controlPanel.setBackground(Color.CYAN);
@@ -83,7 +90,7 @@ public class ControlPanel extends JPanel{
         gasButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                carC.gas(gasAmount);
+                ch.gas(gasAmount);
             }
         });
 
@@ -93,7 +100,7 @@ public class ControlPanel extends JPanel{
         brakeButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                carC.brake(gasAmount);
+                ch.brake(gasAmount);
             }
         });
 
@@ -103,7 +110,7 @@ public class ControlPanel extends JPanel{
         turboOnButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                carC.turboOn();
+                ch.turboOn();
             }
         });
 
@@ -113,7 +120,7 @@ public class ControlPanel extends JPanel{
         turboOffButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                carC.turboOff();
+                ch.turboOff();
             }
         });
 
@@ -123,7 +130,7 @@ public class ControlPanel extends JPanel{
         liftBedButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                carC.scaniaRaiseBed(gasAmount);
+                ch.RaiseBed(gasAmount);
             }
         });
 
@@ -133,7 +140,7 @@ public class ControlPanel extends JPanel{
         lowerBedButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                carC.scaniaLowerBed(gasAmount);
+                ch.LowerBed(gasAmount);
             }
         });
         /*
@@ -142,7 +149,7 @@ public class ControlPanel extends JPanel{
         startButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                carC.startAll();
+                ch.startAll();
             }
         });
 
@@ -152,7 +159,21 @@ public class ControlPanel extends JPanel{
         stopButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                carC.stopAll();
+                ch.stopAll();
+            }
+        });
+
+        addCarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ch.addCar();
+            }
+        });
+
+        removeCarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ch.removeCarAndUpdate();
             }
         });
     }

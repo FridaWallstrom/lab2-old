@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="19b36e17-85fa-4b0a-b986-6ce4a6d98602" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/CarUpdater.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarUpdater.java" afterDir="false" />
+    </list>
+    <list id="42ef87fe-f9f0-456f-a280-c818e06b5f93" name="Changes by felix" comment="">
+      <change beforePath="$PROJECT_DIR$/CarUpdater.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarUpdater.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="LineStatusTrackerManager">
+    <file path="$PROJECT_DIR$/CarUpdater.java">
+      <ranges>
+        <range start1="40" end1="42" start2="40" end2="40" changelist="42ef87fe-f9f0-456f-a280-c818e06b5f93" />
+        <range start1="45" end1="46" start2="43" end2="45" changelist="42ef87fe-f9f0-456f-a280-c818e06b5f93" />
+        <range start1="91" end1="92" start2="90" end2="91" changelist="19b36e17-85fa-4b0a-b986-6ce4a6d98602" />
+      </ranges>
+    </file>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
+  <component name="ProjectId" id="2Z8oiEpVejU16PBSxrDXHjS3S54" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/fridawallstrom/Documents/oop/labb2/lab2-old&quot;
+  }
+}</component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="19b36e17-85fa-4b0a-b986-6ce4a6d98602" name="Changes" comment="" />
+      <created>1701813192197</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1701813192197</updated>
+    </task>
+    <servers />
+  </component>
+</project>

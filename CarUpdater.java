@@ -21,14 +21,9 @@ public class CarUpdater implements Iterable<Car> {
     Timer timer = new Timer(delay, new TimerListener());
 
     // A list of cars, modify if needed
-    Collection<Car> cars = new ArrayList<>();
-    Collection<HasTurbo> saabs = new ArrayList<>();
-    Collection<HasBed> scanias = new ArrayList<>();
+    ArrayList<Car> cars = new ArrayList<>();
 
-
-    //static CarUpdater cc = new CarUpdater();
-
-    private Collection<UpdateObserver> observers = new ArrayList<>();
+    Collection<UpdateObserver> observers = new ArrayList<>();
     //methods:
 
 
@@ -76,7 +71,7 @@ public class CarUpdater implements Iterable<Car> {
                 stopCarFromGoingOutOfBounds(car);
                 car.move();
 
-                for (UpdateObserver observer:observers){
+                for (UpdateObserver observer : observers){
                     observer.actOnTickUpdate();
                 }
             }
@@ -91,66 +86,17 @@ public class CarUpdater implements Iterable<Car> {
         cars.add(car);
     }
 
-    public void addCar(Scania scania) {
-        cars.add(scania);
-        scanias.add(scania);
-    }
-
-    public void addCar(Saab95 saab) {
-        cars.add(saab);
-        saabs.add(saab);
-    }
-
-
-    // Calls the gas method for each car once
-    void gas(int amount) {
-        double gas = ((double) amount) / 100;
-        for (Car car : cars) {
-            car.gas(gas);
+    /*
+        public void addCar(Scania scania) {
+            cars.add(scania);
+            scanias.add(scania);
         }
-    }
 
-    void brake(int amount) {
-        double brakeSpeed = ((double) amount) / 100;
-        for (Car car : cars) {
-            car.brake(brakeSpeed);
+        public void addCar(Saab95 saab) {
+            cars.add(saab);
+            saabs.add(saab);
         }
-    }
+     */
 
-    void startAll() {
-        for (Car car : cars) {
-            car.startEngine();
-        }
-    }
-
-    void stopAll() {
-        for (Car car : cars) {
-            car.stopEngine();
-        }
-    }
-
-    void turboOn() {
-        for (HasTurbo car : saabs) {
-            car.setTurboOn();
-        }
-    }
-
-    void turboOff() {
-        for (HasTurbo car : saabs) {
-            car.setTurboOff();
-        }
-    }
-
-    void scaniaRaiseBed(int angle){
-        for (HasBed car : scanias){
-            car.raiseRamp(angle);
-        }
-    }
-
-    void scaniaLowerBed(int angle){
-        for (HasBed car : scanias){
-            car.lowerRamp(angle);
-        }
-    }
 }
 

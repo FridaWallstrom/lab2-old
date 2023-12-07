@@ -9,17 +9,16 @@ import java.awt.*;
  **/
 
 public class CarView extends JFrame implements UpdateObserver {
-    private static final int X = 800;
-    private static final int Y = 800;
-    CarUpdater cc;
+    public static final int X = 800;
+    public static final int Y = 800;
+    private JPanel controlPanel;
+    private JPanel drawPanel;
 
-    ControlPanel controlPanel = new ControlPanel(X,Y);
-
-    DrawPanel drawPanel = new DrawPanel(X, Y - 240, cc);
 
     // Constructor
-    public CarView(String framename, CarUpdater cc) {
-        this.cc = cc;
+    public CarView(String framename, JPanel controlPanel, JPanel drawPanel) {
+        this.controlPanel = controlPanel;
+        this.drawPanel = drawPanel;
         initComponents(framename);
     }
 
@@ -32,7 +31,6 @@ public class CarView extends JFrame implements UpdateObserver {
         this.setLayout(new FlowLayout(FlowLayout.LEFT, 0, 0));
 
         this.add(drawPanel);
-        controlPanel.initComponents();
         this.add(controlPanel);
 
         // Make the frame pack all it's components by respecting the sizes if possible.
