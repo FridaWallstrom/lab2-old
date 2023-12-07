@@ -1,4 +1,5 @@
 import java.util.HashMap;
+import java.util.function.Function;
 
 public class ControlHandler {
     CarUpdater cu; //lägg till i uml
@@ -79,12 +80,7 @@ public class ControlHandler {
     }
 
     void addCar(){
-        HashMap<Integer, String> items = new HashMap<Integer, String>();
-        items.put(1, "Scania");
-        items.put(2, "Saab95");
-        items.put(3, "Volvo240");
-        items.put(4, "CarTransport");
-        int item = (int)Math.floor(Math.random() * 5 + 1);
+        int item = (int)Math.floor(Math.random() * 4 + 1);
         int position = (int)Math.floor(Math.random() * (510) + 1);
 
         if (cu.cars.size() < 10) {

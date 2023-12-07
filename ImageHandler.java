@@ -8,7 +8,7 @@ public class ImageHandler {
     static HashMap<String, BufferedImage> imageBuffer = new HashMap<>();
     public static BufferedImage getImage(Item item) {
 
-            if(imageBuffer.get(item.getName()) == null){
+            if(!imageBuffer.containsKey(item.getName())){
                 try {
                     String str = "pics/" + item.getName() + ".jpg";
                     imageBuffer.put(item.getName(), ImageIO.read(DrawPanel.class.getResourceAsStream(str)));
